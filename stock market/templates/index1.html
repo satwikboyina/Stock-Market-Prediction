@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>stock market</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+  
+<style>
+  /* Hide the video controls */
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+  
+  /* Set the video to fill the entire page */
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="slide">
+    <!-- Add the video element -->
+    <video autoplay loop muted>
+      <source src="https://player.vimeo.com/external/250154019.sd.mp4?s=3468f4177f4a63819932001215ef2bb28f760a3d&profile_id=164" type="video/mp4">
+     <!--<source src="https://player.vimeo.com/external/406129183.sd.mp4?s=bed913d36c27c71aa37366dade5dcae3a9c87de0&profile_id=164&oauth2_token_id=57447761" type="video/webm">--> 
+      <p>Your browser does not support the video element.</p>
+    </video>
+    </div>
+    <div class="slide">
+    <video autoplay loop muted>
+      <source src="https://player.vimeo.com/progressive_redirect/playback/747879894/rendition/360p/file.mp4?loc=external&oauth2_token_id=1027659527&signature=24d93ed2f535bff4f09ee330d9afabee25ba1d6f2b51b5c640de570ae162ad87" type="video/mp4">
+     <!--<source src="https://player.vimeo.com/external/406129183.sd.mp4?s=bed913d36c27c71aa37366dade5dcae3a9c87de0&profile_id=164&oauth2_token_id=57447761" type="video/webm">--> 
+      <p>Your browser does not support the video element.</p>
+    </video>
+    </div>
+
+  </div>
+  <div class="slide">
+  <video autoplay loop muted>
+    <source src="https://player.vimeo.com/external/576352751.sd.mp4?s=bcf9ad347fc8a8beb8fee593ed9209fcc377aa80&profile_id=164" type="video/mp4"> 
+    <p>Your browser does not support the video element.</p>
+  </video>
+  </div>
+
+ <div class="login">
+	<h1>Stock Market Prediction</h1>
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+        
+	
+        	
+                <input type="text" name="date" placeholder="date" required="required" />
+                <br>
+                <br>
+                <input type="text" name="Open	" placeholder="Open	" required="required" />
+                <br>
+                <br>
+                <input type="text" name="High" placeholder="High" required="required" />
+                <br>
+                <br>
+                <input type="text" name="Low" placeholder="Low" required="required" />
+                <br>
+                <br>
+                <input type="text" name="Close" placeholder="Close" required="required" />
+                <br>
+                <br>
+                <input type="text" name="Adj Close" placeholder="Adj Close" required="required" />
+                <br>
+                <br>
+                
+                              
+		
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
